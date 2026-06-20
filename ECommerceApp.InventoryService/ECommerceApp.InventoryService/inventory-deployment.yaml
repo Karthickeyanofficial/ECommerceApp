@@ -1,0 +1,28 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inventory-service
+  template:
+    metadata:
+      labels:
+        app: inventory-service
+    spec:
+      containers:
+      - name: inventory-service
+        image: karthickeyanofficial/inventory-service:1.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: RabbitMQ__Host
+          value: "52.140.63.203"
+        - name: RabbitMQ__Username
+          value: "app_user"
+        - name: RabbitMQ__Password
+          value: "postgres123"
+        - name: ConnectionStrings__InventoryDb
+          value: "Host=52.140.63.203;Port=5432;Database=InventoryDb;Username=postgres;Password=postgres123"

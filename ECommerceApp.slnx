@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ECommerceApp.InventoryService/ECommerceApp.InventoryService/ECommerceApp.InventoryService.csproj" />
+  <Project Path="ECommerceApp.OrderService/ECommerceApp.OrderService/ECommerceApp.OrderService.csproj" />
+  <Project Path="ECommerceApp.Shared/ECommerceApp.Shared/ECommerceApp.Shared.csproj" />
+</Solution>

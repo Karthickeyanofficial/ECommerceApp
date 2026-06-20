@@ -1,0 +1,28 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: karthickeyanofficial/order-service:1.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: RabbitMQ__Host
+          value: "52.140.63.203"
+        - name: RabbitMQ__Username
+          value: "app_user"
+        - name: RabbitMQ__Password
+          value: "postgres123"
+        - name: ConnectionStrings__OrderDb
+          value: "Host=52.140.63.203;Port=5432;Database=OrderDb;Username=postgres;Password=postgres123"
